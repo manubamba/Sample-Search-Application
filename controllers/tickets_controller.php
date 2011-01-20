@@ -18,6 +18,7 @@ class TicketsController extends AppController {
  */
 	public $presetVars = array(
 		array('field' => 'title', 'type' => 'value'),
+		array('field' => 'status', 'type' => 'value'),
 	);
 
 /**

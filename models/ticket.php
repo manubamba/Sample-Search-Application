@@ -40,6 +40,7 @@ class Ticket extends AppModel {
  */
 	public $filterArgs = array(
 		array('name' => 'title', 'type' => 'string'),
+		array('name' => 'status', 'type' => 'string'),
 	);
 		
 /**
