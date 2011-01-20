@@ -39,7 +39,7 @@ class Ticket extends AppModel {
  * @see SearchableBehavior
  */
 	public $filterArgs = array(
-		array('name' => 'title', 'type' => 'string'),
+		array('name' => 'title', 'type' => 'query', 'method' => 'filterTitle'),
 		array('name' => 'status', 'type' => 'string'),
 	);
 		
@@ -62,4 +62,17 @@ class Ticket extends AppModel {
 			'other' => __('Other', true));
 		parent::__construct($id, $table, $ds);
 	}
+	
+	public function filterTitle($data, $field = null) {
+		if (empty($data['title'])) {
+			return array();
+		}
+		$title = '%' . $data['title'] . '%';
+		return array(
+			'OR'  => array(
+				$this->alias . '.title LIKE' => $title,
+				$this->alias . '.content LIKE' => $title,
+			));
+	}
+	
 }
