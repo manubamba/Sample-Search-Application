@@ -23,7 +23,25 @@ class Ticket extends AppModel {
 			'notempty' => array(
 				'rule' => array('notempty'))));
 
-				
+/**
+ * Behaviors
+ *
+ * @var array
+ * @access public
+ */
+	public $actsAs = array(
+		'Search.Searchable');
+
+/**
+ * Field names accepted for search queries.
+ *
+ * @var array
+ * @see SearchableBehavior
+ */
+	public $filterArgs = array(
+		array('name' => 'title', 'type' => 'string'),
+	);
+		
 /**
  * Constructor
  *

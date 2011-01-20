@@ -7,6 +7,18 @@ class TicketsController extends AppController {
  */
 	public $name = 'Tickets';
 
+	public $components = array('Search.Prg');
+	
+/**
+ * Fields to preset in search forms.
+ *
+ * @var array $presetVars
+ * @see Search.PrgComponent
+ * @access public
+ */
+	public $presetVars = array(
+		array('field' => 'title', 'type' => 'value'),
+	);
 
 /**
  * Before filter callback
@@ -24,7 +36,9 @@ class TicketsController extends AppController {
 	
 	
 	public function index() {
-		$this->Ticket->recursive = 0;
+		$this->Prg->commonProcess();
+		$this->paginate = array( 
+			'conditions' => $this->Ticket->parseCriteria($this->passedArgs));
 		$this->set('tickets', $this->paginate());
 	}
 

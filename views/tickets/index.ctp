@@ -1,8 +1,19 @@
 <div class="tickets index">
 	<h2><?php __('Tickets');?></h2>
+	
+	<div class="filter">
+	<?php
+		echo $this->Form->create('Ticket', array(
+			'url' => array_merge(array('action' => 'index'), $this->params['pass'])
+			));
+		echo $this->Form->input('title', array('div' => false, 'empty' => true));
+		echo $this->Form->submit(__('Search', true), array('div' => false));
+		echo $this->Form->end();
+	?>
+	</div>	
+	
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('status');?></th>
 			<th><?php echo $this->Paginator->sort('category');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
@@ -20,7 +31,6 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $ticket['Ticket']['id']; ?>&nbsp;</td>
 		<td><?php echo $ticket['Ticket']['status']; ?>&nbsp;</td>
 		<td><?php echo $ticket['Ticket']['category']; ?>&nbsp;</td>
 		<td><?php echo $ticket['Ticket']['title']; ?>&nbsp;</td>
