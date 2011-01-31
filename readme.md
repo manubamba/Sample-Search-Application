@@ -16,7 +16,7 @@ Using git install app possible really simple.
 
 4. Run migrations to create app tables and populate it with sample data:
 	
-	cake migrations all
+	cake migration all
 	
 	
 ## Code guide ##	
