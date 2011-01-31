@@ -17,19 +17,19 @@ class M4d3814afd7d44473b3220aa40e7e8ef6 extends CakeMigration {
  */
 	public $migration = array(
 		'up' => array(
-			// 'create_table' => array(
-				// 'tickets' => array(
-					// 'id' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary'),
-					// 'status' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 64),
-					// 'category' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 32),
-					// 'title' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 300),
-					// 'content' => array('type'=>'text', 'null' => true),
-					// 'created' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
-					// 'modified' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
-					// 'indexes' => array(
-						// 'PRIMARY' => array('column' => 'id', 'unique' => 1)),
-				// ),
-			// ),
+			'create_table' => array(
+				'tickets' => array(
+					'id' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary'),
+					'status' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 64),
+					'category' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 32),
+					'title' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 300),
+					'content' => array('type'=>'text', 'null' => true),
+					'created' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
+					'modified' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
+					'indexes' => array(
+						'PRIMARY' => array('column' => 'id', 'unique' => 1)),
+				),
+			),
 		),
 		'down' => array(
 			'drop_table' => array('tickets'))
